@@ -11,10 +11,12 @@ So we can add the following code to the `LoginWidow`:
 private NavigationState state;
 private String secretToken = "e63cacd4-646b-4232-bd72-36ddff780bbf";
 
+@Inject
+private UrlRouting urlRouting;
+
 @Subscribe
 private void onBeforeShow(BeforeShowEvent event) {
-    ScreenContext screenContext = UiControllerUtils.getScreenContext(this);
-    state = screenContext.getUrlRouting().getState();
+    state = urlRouting.getState();
 }
 
 @Subscribe
